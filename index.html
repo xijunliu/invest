@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基金投资报告 - 2026-09-14</title>
+<style>
+:root {
+  --bg: #faf8f3;        /* 米色背景 */
+  --fg: #2c2c2c;
+  --primary: #5a7a5e;  /* 莫兰迪绿 */
+  --accent: #6b8e9e;   /* 莫兰迪蓝 */
+  --warn: #c9744a;     /* 暖橙 */
+  --good: #5a7a5e;
+  --bad: #b6584a;
+  --border: #e0dcd0;
+  --bg-card: #fffef9;
+  --shadow: rgba(0,0,0,0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* Tab 切换 */
+.tabs {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: var(--primary);
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab-content.active { display: block; }
+
+/* 头部 */
+.header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.header h1 {
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.header .meta {
+  font-size: 13px;
+  color: #777;
+}
+
+/* 卡片 */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.card h2 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 表格 */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tr:nth-child(even) { background: #f7f5ed; }
+
+/* 颜色标记 */
+.warn { color: var(--warn); font-weight: 500; }
+.good { color: var(--good); font-weight: 500; }
+.bad { color: var(--bad); font-weight: 500; }
+.danger { color: #cc3344; font-weight: 600; }
+
+/* 操作建议 */
+.action-good { background: #e8f5e9 !important; }
+.action-bad { background: #ffe8e8 !important; }
+.action-watch { background: #fff8e1 !important; }
+
+/* 引述块 */
+.quote {
+  background: #f0ebe1;
+  border-left: 4px solid var(--primary);
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  font-style: italic;
+  color: #555;
+  font-size: 13px;
+}
+
+/* 小屏适配 */
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+  .card { padding: 14px; }
+  .tab { padding: 8px 14px; font-size: 14px; }
+  table { font-size: 13px; }
+  th, td { padding: 6px 6px; }
+}
+
+/* 隐藏的 markdown 原始元素 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
+}
+ul, ol { padding-left: 20px; margin: 6px 0; }
+li { margin: 2px 0; }
+strong { font-weight: 600; }
+hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+p { margin: 6px 0; }
+
+.score-good { color: var(--good); }
+.score-watch { color: var(--warn); }
+.score-bad { color: var(--bad); }
+.score-danger { color: #cc3344; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('daily')">📊 日报</button>
+  <button class="tab" onclick="showTab('weekly')">📅 周报</button>
+  <button class="tab" onclick="showTab('monthly')">📋 月报</button>
+</div>
+
+<div id="daily" class="tab-content active">
+  <div class="card"><h1>📊 每日速报 - 2026-09-14</h1>
+<p><strong>组合</strong>：¥1,294,126（44 只）</p>
+<p>🎯 <strong>⚪ </strong>中性<strong> —— 无明显极端</strong></p>
+<h2>📈 持仓变化（今日/昨日/上周/30天）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">今日</th>
+<th style="text-align: right;">昨日</th>
+<th style="text-align: right;">上周</th>
+<th style="text-align: right;">30天</th>
+<th style="text-align: right;">连跌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>富国中证红利指数增强</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.21%</td>
+<td style="text-align: right;">+1.25%</td>
+<td style="text-align: right;">2天</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>华夏国证自由现金流E</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">-0.10%</td>
+<td style="text-align: right;">+0.73%</td>
+<td style="text-align: right;">2天</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>景顺长城沪港深红利成</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">-0.14%</td>
+<td style="text-align: right;">+2.03%</td>
+<td style="text-align: right;">1天</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>嘉实恒生消费ETF发</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">-3.57%</td>
+<td style="text-align: right;">-6.26%</td>
+<td style="text-align: right;">3天 ⚠️</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>华夏上证50AH优选</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">+0.00%</td>
+<td style="text-align: right;">-1.77%</td>
+<td style="text-align: right;">-1.15%</td>
+<td style="text-align: right;">2天</td>
+</tr>
+</tbody>
+</table>
+<h2>📊 PE 分位迁移（vs 上周）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th style="text-align: right;">当前 1y</th>
+<th style="text-align: right;">1 周前</th>
+<th style="text-align: right;">变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>数据积累中</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h2>🎯 今日操作建议</h2>
+<h3>减仓：018200 嘉实恒生消费ETF发起联接(（评分 35）</h3>
+<ul>
+<li>金额：¥3,000</li>
+<li>集中度：✅ 加后 港股·消费 7%（合理）</li>
+<li>理由：夏普 1y -1.55（极差）</li>
+<li>📚 《周期》Marks：钟摆永远走过头</li>
+</ul>
+<h3>减仓：013402 华夏恒生科技ETF发起式联接（评分 35）</h3>
+<ul>
+<li>金额：¥3,000</li>
+<li>集中度：✅ 加后 港股·科技 7%（合理）</li>
+<li>理由：夏普 1y -1.21（极差）</li>
+<li>📚 《周期》Marks：钟摆永远走过头</li>
+</ul>
+<h2>⚠️ 行为检查</h2>
+<ul>
+<li>今日持仓平均涨跌：+0.00%</li>
+<li>5+ 天连续下跌基金：8 只</li>
+<li>🟢 情绪良好（上涨）</li>
+</ul>
+<h2>📖 今日视角（19 本书）</h2>
+<blockquote>
+<p><em>《穷查理宝典》Munger</em>：&gt; 知道自己不知道什么**</p>
+<p>⚠️ <strong>数据缺失</strong>（周末/节假日/AKShare 限流）
+📅 上一个有数据日：<strong>2026-09-11（周五）</strong>
+💡 <code>python3 scripts/macro_daily.py --date 2026-09-11</code></p>
+</blockquote></div>
+</div>
+
+<div id="weekly" class="tab-content">
+  <div class="card"><h1>📊 周报 - 2026-09-14</h1>
+<p><strong>组合总市值</strong>：¥1,294,126（44 只）</p>
+<hr />
+<h2>📈 关键统计</h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: right;">数量</th>
+<th style="text-align: right;">金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高估（1y 分位 &gt; 70%）</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">¥0</td>
+</tr>
+<tr>
+<td>低估+质量好（分位 &lt; 30%，夏普 &gt; 0）</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">¥0</td>
+</tr>
+<tr>
+<td>烂基（夏普 &lt; -1）</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">¥345,431</td>
+</tr>
+<tr>
+<td>微仓（&lt; ¥3,000）</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">¥9,092</td>
+</tr>
+</tbody>
+</table>
+<h2>📊 持仓类别分布</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: right;">只数</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红利</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">¥264,956</td>
+<td style="text-align: right;">20.5%</td>
+</tr>
+<tr>
+<td>港股</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">¥260,177</td>
+<td style="text-align: right;">20.1%</td>
+</tr>
+<tr>
+<td>行业</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">¥247,550</td>
+<td style="text-align: right;">19.1%</td>
+</tr>
+<tr>
+<td>宽基</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">¥235,140</td>
+<td style="text-align: right;">18.2%</td>
+</tr>
+<tr>
+<td>主动</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">¥138,982</td>
+<td style="text-align: right;">10.7%</td>
+</tr>
+<tr>
+<td>主题</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">¥106,413</td>
+<td style="text-align: right;">8.2%</td>
+</tr>
+<tr>
+<td>QDII</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">¥40,907</td>
+<td style="text-align: right;">3.2%</td>
+</tr>
+</tbody>
+</table>
+<h2>🔥 高估 Top 5（双维度：NAV 3y + PE 3y 排序）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">3y NAV</th>
+<th style="text-align: right;">3y PE</th>
+<th style="text-align: right;">持仓盈亏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>🟢 低估 Top 5（双维度：NAV 3y + PE 3y 排序）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">3y NAV</th>
+<th style="text-align: right;">3y PE</th>
+<th style="text-align: right;">夏普</th>
+<th style="text-align: right;">持仓盈亏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>🔗 高相关基金对（ρ &gt; 0.85）</h2>
+<table>
+<thead>
+<tr>
+<th>基金 A</th>
+<th>基金 B</th>
+<th style="text-align: right;">相关性</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广发中证全指建筑材料指数A (004856)</td>
+<td>广发中证全指建筑材料指数C (004857)</td>
+<td style="text-align: right;"><strong>1.000</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr>
+<td>广发恒生科技ETF联接(QD (012804)</td>
+<td>华夏恒生科技ETF发起式联接 (013402)</td>
+<td style="text-align: right;"><strong>1.000</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr>
+<td>招商国证生物医药指数A (161726)</td>
+<td>汇添富中证生物科技指数A (501009)</td>
+<td style="text-align: right;"><strong>0.980</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr class="action-watch">
+<td>天弘中证证券保险A (001552)</td>
+<td>富国中证全指证券公司指数A (161027)</td>
+<td style="text-align: right;"><strong>0.976</strong></td>
+<td>🟡 考虑减仓</td>
+</tr>
+<tr>
+<td>易方达中证海外中国互联网50 (006327)</td>
+<td>交银中证海外中国互联网指数( (164906)</td>
+<td style="text-align: right;"><strong>0.953</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr class="action-watch">
+<td>兴全红利混合A (021247)</td>
+<td>富国中证红利指数增强A (100032)</td>
+<td style="text-align: right;"><strong>0.940</strong></td>
+<td>🟡 考虑减仓</td>
+</tr>
+<tr class="action-watch">
+<td>富国沪深300指数增强A/B (100038)</td>
+<td>富国中证500指数增强(LO (161017)</td>
+<td style="text-align: right;"><strong>0.929</strong></td>
+<td>🟡 考虑减仓</td>
+</tr>
+<tr>
+<td>工银前沿医疗股票A (001717)</td>
+<td>华安医疗创新混合A (008359)</td>
+<td style="text-align: right;"><strong>0.926</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr>
+<td>汇添富创新医药混合A (006113)</td>
+<td>华安医疗创新混合A (008359)</td>
+<td style="text-align: right;"><strong>0.926</strong></td>
+<td>🔴 同类重复</td>
+</tr>
+<tr class="action-watch">
+<td>易方达中证海外中国互联网50 (006327)</td>
+<td>广发恒生科技ETF联接(QD (012804)</td>
+<td style="text-align: right;"><strong>0.924</strong></td>
+<td>🟡 考虑减仓</td>
+</tr>
+</tbody>
+</table>
+<h2>📈 持仓趋势速览</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">30 天</th>
+<th style="text-align: right;">7 日</th>
+<th style="text-align: right;">连跌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>富国中证红利指数增强A</td>
+<td style="text-align: right;">+1.25%</td>
+<td style="text-align: right;">+0.21%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>华夏国证自由现金流ETF发起</td>
+<td style="text-align: right;">+0.73%</td>
+<td style="text-align: right;">-0.10%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>景顺长城沪港深红利成长低波指</td>
+<td style="text-align: right;">+2.03%</td>
+<td style="text-align: right;">-0.14%</td>
+<td style="text-align: right;">1 天</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>嘉实恒生消费ETF发起联接(</td>
+<td style="text-align: right;">-6.26%</td>
+<td style="text-align: right;">-3.57%</td>
+<td style="text-align: right;">3 天 ⚠️</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>华夏上证50AH优选指数(L</td>
+<td style="text-align: right;">-1.15%</td>
+<td style="text-align: right;">-1.77%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>013402</td>
+<td>华夏恒生科技ETF发起式联接</td>
+<td style="text-align: right;">-7.99%</td>
+<td style="text-align: right;">-4.44%</td>
+<td style="text-align: right;">5 天 ⚠️</td>
+</tr>
+<tr>
+<td>008359</td>
+<td>华安医疗创新混合A</td>
+<td style="text-align: right;">-7.74%</td>
+<td style="text-align: right;">-3.79%</td>
+<td style="text-align: right;">3 天 ⚠️</td>
+</tr>
+<tr>
+<td>100038</td>
+<td>富国沪深300指数增强A/B</td>
+<td style="text-align: right;">-2.63%</td>
+<td style="text-align: right;">-0.89%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+</tbody>
+</table>
+<h2>💰 资产全景（合并余额宝后）</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基金组合</td>
+<td style="text-align: right;">¥1,294,126</td>
+<td style="text-align: right;">68.3%</td>
+</tr>
+<tr>
+<td>余额宝</td>
+<td style="text-align: right;">¥600,000</td>
+<td style="text-align: right;">31.7%</td>
+</tr>
+<tr>
+<td><strong>总</strong></td>
+<td style="text-align: right;"><strong>¥1,894,126</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>配置</strong>：股 65% / 债 0% / 现金 32%</p>
+<h2>🎯 一周总结（5 句）</h2>
+<ol>
+<li>持仓整体 -6.84%，跑赢沪深 300 (+0.3%)</li>
+<li>高估基金 4 只（3y 分位 &gt; 80%），低估 + 质量好 0 只</li>
+<li>集中度：港股 23.3% / 红利 20.5% 均偏高</li>
+<li>资产总规模：¥1,894,126</li>
+<li>本周建议：见下方操作清单（v2 评分 + 集中度预检）</li>
+</ol>
+<h2>⚠️ 风险监控（夏普/回撤变化）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>夏普 1y</th>
+<th style="text-align: right;">最大回撤</th>
+<th style="text-align: right;">当前回撤</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>-0.61</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>0.14</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>⚪ 中</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>-0.73</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>-1.55</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>-0.16</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>013402</td>
+<td>-1.21</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>008359</td>
+<td>-0.48</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>🔴 差</td>
+</tr>
+<tr>
+<td>100038</td>
+<td>0.05</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+<td>⚪ 中</td>
+</tr>
+</tbody>
+</table>
+<h2>🎯 本周操作清单（v2 评分 + 集中度预检 + 双维度）</h2>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>标的</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">评分</th>
+<th style="text-align: right;">3y NAV</th>
+<th style="text-align: right;">3y PE</th>
+<th>集中度</th>
+<th>理由</th>
+<th>书观点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="action-watch">
+<td>减仓</td>
+<td>501050 华夏上证50AH优选指数</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 宽基·50AH 7%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>008359 华安医疗创新混合A</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·医药 8%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>001044 嘉实新消费股票A</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·消费 6%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>016440 华夏中证红利质量ETF发</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 红利·质量 1%（合理）</td>
+<td>NAV 3y 分位 84%（极贵）</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr>
+<td>轻仓</td>
+<td>001875 前海开源沪港深优势精选混</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 港股·主动 3%（合理）</td>
+<td>NAV 3y 分位 9%（极便宜）</td>
+<td>《聪明的投资者》Graham：市场先生恐慌时买</td>
+</tr>
+</tbody>
+</table>
+<h3>🔴 砍基：018200 嘉实恒生消费ETF发起联接(QD</h3>
+<ul>
+<li>夏普 -1.55（经理能力差）</li>
+<li>操作：全清仓</li>
+<li>📚 理论支撑：  - <em>Bogle《共同基金常识》</em>：「80% 主动基金长期跑不赢指数」</li>
+<li><em>Munger《穷查理宝典》</em>：「不熟不投」</li>
+</ul></div>
+</div>
+
+<div id="monthly" class="tab-content">
+  <div class="card"><h1>📊 月报 - 2026-09-14</h1>
+<p><strong>组合总市值</strong>：¥1,294,126（44 只基金）</p>
+<hr />
+<h2>🎯 月度总结</h2>
+<ol>
+<li>持仓整体 -6.84%，跑赢沪深 300 (+0.3%)</li>
+<li>高估基金 4 只（3y 分位 &gt; 80%），低估 + 质量好 0 只</li>
+<li>集中度：港股 23.3% / 红利 20.5% 均偏高</li>
+<li>资产总规模：¥1,894,126（基金 ¥1,294,126 + 余额宝 ¥600,000）</li>
+<li>下月建议：见操作清单（v2 评分 + 集中度预检 + 19 本书引用）</li>
+</ol>
+<h2>📈 关键统计</h2>
+<ul>
+<li>总市值：¥1,294,126</li>
+<li>持仓收益：¥-31,958（-6.84%）</li>
+<li>加权 PE：3.2</li>
+<li>加权 PB：2.14</li>
+</ul>
+<h2>🎯 资产配置总览</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: right;">只数</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红利</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">¥264,956</td>
+<td style="text-align: right;">20.5%</td>
+</tr>
+<tr>
+<td>港股</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">¥260,177</td>
+<td style="text-align: right;">20.1%</td>
+</tr>
+<tr>
+<td>行业</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">¥247,550</td>
+<td style="text-align: right;">19.1%</td>
+</tr>
+<tr>
+<td>宽基</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">¥235,140</td>
+<td style="text-align: right;">18.2%</td>
+</tr>
+<tr>
+<td>主动</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">¥138,982</td>
+<td style="text-align: right;">10.7%</td>
+</tr>
+<tr>
+<td>主题</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">¥106,413</td>
+<td style="text-align: right;">8.2%</td>
+</tr>
+<tr>
+<td>QDII</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">¥40,907</td>
+<td style="text-align: right;">3.2%</td>
+</tr>
+</tbody>
+</table>
+<h3>合并余额宝后（总资产 ¥1,894,126）</h3>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>股票类</td>
+<td style="text-align: right;">¥1,229,420</td>
+<td style="text-align: right;">64.9%</td>
+</tr>
+<tr>
+<td>债类</td>
+<td style="text-align: right;">¥0</td>
+<td style="text-align: right;">0.0%</td>
+</tr>
+<tr>
+<td>现金类</td>
+<td style="text-align: right;">¥600,000</td>
+<td style="text-align: right;">31.7%</td>
+</tr>
+</tbody>
+</table>
+<p>建议：留 8% 现金 = ¥151530，转债 25% = ¥473532</p>
+<hr />
+<h2>📊 持仓基本面（PE/PB/ROE 聚合）</h2>
+<p><strong>组合层</strong>（按持仓金额加权）：
+- 加权 PE：3.2
+- 加权 PB：2.14</p>
+<p><strong>主要持仓基金</strong>（按仓位排序）：</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">仓位</th>
+<th style="text-align: right;">加权 PE</th>
+<th style="text-align: right;">加权 PB</th>
+<th style="text-align: right;">加权 ROE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>富国中证红利指数增强A</td>
+<td style="text-align: right;">9.4%</td>
+<td style="text-align: right;">10.3</td>
+<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">10.3</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>华夏国证自由现金流ETF发起式联</td>
+<td style="text-align: right;">8.1%</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>景顺长城沪港深红利成长低波指数A</td>
+<td style="text-align: right;">7.5%</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: right;">1.76</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>嘉实恒生消费ETF发起联接(QD</td>
+<td style="text-align: right;">6.7%</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>华夏上证50AH优选指数(LOF</td>
+<td style="text-align: right;">6.3%</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">4.59</td>
+<td style="text-align: right;">24.7</td>
+</tr>
+<tr>
+<td>013402</td>
+<td>华夏恒生科技ETF发起式联接(Q</td>
+<td style="text-align: right;">6.2%</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>008359</td>
+<td>华安医疗创新混合A</td>
+<td style="text-align: right;">5.6%</td>
+<td style="text-align: right;">28.9</td>
+<td style="text-align: right;">4.90</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>100038</td>
+<td>富国沪深300指数增强A/B</td>
+<td style="text-align: right;">4.9%</td>
+<td style="text-align: right;">14.9</td>
+<td style="text-align: right;">2.81</td>
+<td style="text-align: right;">16.3</td>
+</tr>
+<tr>
+<td>008975</td>
+<td>富国中证消费50ETF联接A</td>
+<td style="text-align: right;">4.6%</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>021457</td>
+<td>易方达恒生港股通高股息低波动ET</td>
+<td style="text-align: right;">4.6%</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h2>📈 基金深度（5 年 NAV 分析）</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">持仓收益</th>
+<th style="text-align: right;">3y 分位</th>
+<th style="text-align: right;">1y 收益</th>
+<th style="text-align: right;">夏普</th>
+<th style="text-align: right;">最大回撤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>富国中证红利指数增强A</td>
+<td style="text-align: right;">+2.5%</td>
+<td style="text-align: right;">24%</td>
+<td style="text-align: right;">-5.8%</td>
+<td style="text-align: right;">-0.61</td>
+<td style="text-align: right;">-63.1%</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>华夏国证自由现金流ETF发起</td>
+<td style="text-align: right;">+1.3%</td>
+<td style="text-align: right;">51%</td>
+<td style="text-align: right;">+4.2%</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">-23.4%</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>景顺长城沪港深红利成长低波指</td>
+<td style="text-align: right;">+0.7%</td>
+<td style="text-align: right;">60%</td>
+<td style="text-align: right;">-6.2%</td>
+<td style="text-align: right;">-0.73</td>
+<td style="text-align: right;">-20.0%</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>嘉实恒生消费ETF发起联接(</td>
+<td style="text-align: right;">-12.8%</td>
+<td style="text-align: right;">12%</td>
+<td style="text-align: right;">-24.0%</td>
+<td style="text-align: right;">-1.55</td>
+<td style="text-align: right;">-31.9%</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>华夏上证50AH优选指数(L</td>
+<td style="text-align: right;">+32.5%</td>
+<td style="text-align: right;">71%</td>
+<td style="text-align: right;">-0.5%</td>
+<td style="text-align: right;">-0.16</td>
+<td style="text-align: right;">-40.3%</td>
+</tr>
+<tr>
+<td>013402</td>
+<td>华夏恒生科技ETF发起式联接</td>
+<td style="text-align: right;">-11.5%</td>
+<td style="text-align: right;">33%</td>
+<td style="text-align: right;">-29.7%</td>
+<td style="text-align: right;">-1.21</td>
+<td style="text-align: right;">-52.4%</td>
+</tr>
+<tr>
+<td>008359</td>
+<td>华安医疗创新混合A</td>
+<td style="text-align: right;">+16.9%</td>
+<td style="text-align: right;">78%</td>
+<td style="text-align: right;">-14.0%</td>
+<td style="text-align: right;">-0.48</td>
+<td style="text-align: right;">-58.1%</td>
+</tr>
+<tr>
+<td>100038</td>
+<td>富国沪深300指数增强A/B</td>
+<td style="text-align: right;">+28.1%</td>
+<td style="text-align: right;">79%</td>
+<td style="text-align: right;">+2.8%</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">-46.6%</td>
+</tr>
+<tr>
+<td>008975</td>
+<td>富国中证消费50ETF联接A</td>
+<td style="text-align: right;">-3.6%</td>
+<td style="text-align: right;">21%</td>
+<td style="text-align: right;">-13.8%</td>
+<td style="text-align: right;">-1.09</td>
+<td style="text-align: right;">-51.6%</td>
+</tr>
+<tr>
+<td>021457</td>
+<td>易方达恒生港股通高股息低波动</td>
+<td style="text-align: right;">-0.6%</td>
+<td style="text-align: right;">46%</td>
+<td style="text-align: right;">-8.1%</td>
+<td style="text-align: right;">-0.81</td>
+<td style="text-align: right;">-21.1%</td>
+</tr>
+</tbody>
+</table>
+<h2>🎯 集中度分析</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">占比</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红利</td>
+<td style="text-align: right;">¥264,956</td>
+<td style="text-align: right;">20.5%</td>
+<td>🟡 偏高</td>
+</tr>
+<tr>
+<td>港股</td>
+<td style="text-align: right;">¥260,177</td>
+<td style="text-align: right;">20.1%</td>
+<td>🟡 偏高</td>
+</tr>
+<tr>
+<td>行业</td>
+<td style="text-align: right;">¥247,550</td>
+<td style="text-align: right;">19.1%</td>
+<td>🟡 偏高</td>
+</tr>
+<tr>
+<td>宽基</td>
+<td style="text-align: right;">¥235,140</td>
+<td style="text-align: right;">18.2%</td>
+<td>🟡 偏高</td>
+</tr>
+<tr>
+<td>主动</td>
+<td style="text-align: right;">¥138,982</td>
+<td style="text-align: right;">10.7%</td>
+<td>🟢 合理</td>
+</tr>
+<tr>
+<td>主题</td>
+<td style="text-align: right;">¥106,413</td>
+<td style="text-align: right;">8.2%</td>
+<td>🟢 合理</td>
+</tr>
+<tr>
+<td>QDII</td>
+<td style="text-align: right;">¥40,907</td>
+<td style="text-align: right;">3.2%</td>
+<td>🟢 合理</td>
+</tr>
+</tbody>
+</table>
+<h2>🎯 资产配置（目标 vs 当前）</h2>
+<p><strong>总资产：¥1,894,126</strong></p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: right;">当前</th>
+<th style="text-align: right;">目标</th>
+<th style="text-align: right;">差异</th>
+<th>操作建议</th>
+</tr>
+</thead>
+<tbody>
+<tr class="action-watch">
+<td>股票类</td>
+<td style="text-align: right;">65%</td>
+<td style="text-align: right;">70%</td>
+<td style="text-align: right;">-5pp</td>
+<td>减仓 ¥-96,468</td>
+</tr>
+<tr>
+<td>债类</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">25%</td>
+<td style="text-align: right;">-25pp</td>
+<td>加债 ¥473,532</td>
+</tr>
+<tr>
+<td>现金类</td>
+<td style="text-align: right;">32%</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">+27pp</td>
+<td>调现金</td>
+</tr>
+</tbody>
+</table>
+<p><em>出自《资产配置攻略》张晓军：100-年龄 = 股票占比</em></p>
+<h2>🔗 高相关基金对（ρ &gt; 0.9）</h2>
+<table>
+<thead>
+<tr>
+<th>基金 A</th>
+<th>基金 B</th>
+<th style="text-align: right;">相关性</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广发中证全指建筑材料指数 (004856)</td>
+<td>广发中证全指建筑材料指数 (004857)</td>
+<td style="text-align: right;"><strong>1.000</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>广发恒生科技ETF联接( (012804)</td>
+<td>华夏恒生科技ETF发起式 (013402)</td>
+<td style="text-align: right;"><strong>1.000</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>招商国证生物医药指数A (161726)</td>
+<td>汇添富中证生物科技指数A (501009)</td>
+<td style="text-align: right;"><strong>0.980</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>天弘中证证券保险A (001552)</td>
+<td>富国中证全指证券公司指数 (161027)</td>
+<td style="text-align: right;"><strong>0.976</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>易方达中证海外中国互联网 (006327)</td>
+<td>交银中证海外中国互联网指 (164906)</td>
+<td style="text-align: right;"><strong>0.953</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>兴全红利混合A (021247)</td>
+<td>富国中证红利指数增强A (100032)</td>
+<td style="text-align: right;"><strong>0.940</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>富国沪深300指数增强A (100038)</td>
+<td>富国中证500指数增强( (161017)</td>
+<td style="text-align: right;"><strong>0.929</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+<tr>
+<td>工银前沿医疗股票A (001717)</td>
+<td>华安医疗创新混合A (008359)</td>
+<td style="text-align: right;"><strong>0.926</strong></td>
+<td>🔴 完全重复</td>
+</tr>
+</tbody>
+</table>
+<h2>⚠️ 风险评估 + 压力测试</h2>
+<p><strong>总资产</strong>：¥1,894,126</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>触发条件</th>
+<th style="text-align: right;">估算损失</th>
+<th style="text-align: right;">你的资产</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>极端 A 股跌 20%</td>
+<td>沪深 300 跌 20%（4 周）</td>
+<td style="text-align: right;">¥245,884</td>
+<td style="text-align: right;">¥1,648,242</td>
+</tr>
+<tr>
+<td>中度 A 股跌 10%</td>
+<td>单月急跌</td>
+<td style="text-align: right;">¥122,942</td>
+<td style="text-align: right;">¥1,771,184</td>
+</tr>
+<tr>
+<td>港股跌 30%</td>
+<td>DXY &gt; 125 + 港股 PE 高</td>
+<td style="text-align: right;">¥77,648</td>
+<td style="text-align: right;">¥1,816,479</td>
+</tr>
+<tr>
+<td>红利 + 债回撤 3%</td>
+<td>利率上行 100bp</td>
+<td style="text-align: right;">¥6,988</td>
+<td style="text-align: right;">¥1,887,138</td>
+</tr>
+<tr>
+<td>组合极端回撤 30%</td>
+<td>2008/2015 级别</td>
+<td style="text-align: right;">¥568,238</td>
+<td style="text-align: right;">¥1,325,888</td>
+</tr>
+</tbody>
+</table>
+<p><em>出自《黑天鹅》Taleb：脆弱 = 波动导致损害，杠铃 = 90% 安全 + 10% 机会</em></p>
+<h2>🎯 操作清单（v2 评分 + 集中度预检 + 双维度）</h2>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>标的</th>
+<th style="text-align: right;">金额</th>
+<th style="text-align: right;">评分</th>
+<th style="text-align: right;">3y NAV</th>
+<th style="text-align: right;">3y PE</th>
+<th>集中度</th>
+<th>理由</th>
+<th>书观点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="action-watch">
+<td>减仓</td>
+<td>501050 华夏上证50AH优选指数</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 宽基·50AH 7%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>008359 华安医疗创新混合A</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·医药 8%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>001044 嘉实新消费股票A</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·消费 6%（合理）</td>
+<td>中性</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr class="action-watch">
+<td>减仓</td>
+<td>016440 华夏中证红利质量ETF发</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 红利·质量 1%（合理）</td>
+<td>NAV 3y 分位 84%（极贵）</td>
+<td>《周期》Marks：钟摆永远走过头</td>
+</tr>
+<tr>
+<td>轻仓</td>
+<td>001875 前海开源沪港深优势精选混</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 港股·主动 3%（合理）</td>
+<td>NAV 3y 分位 9%（极便宜）</td>
+<td>《聪明的投资者》Graham：市场先生恐慌时买</td>
+</tr>
+<tr>
+<td>轻仓</td>
+<td>004857 广发中证全指建筑材料指数</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·建材 0%（合理）</td>
+<td>NAV 3y 分位 5%（极便宜）</td>
+<td>《聪明的投资者》Graham：市场先生恐慌时买</td>
+</tr>
+<tr>
+<td>轻仓</td>
+<td>004856 广发中证全指建筑材料指数</td>
+<td style="text-align: right;">¥3,000</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td>✅ 加后 行业·建材 0%（合理）</td>
+<td>NAV 3y 分位 6%（极便宜）</td>
+<td>《聪明的投资者》Graham：市场先生恐慌时买</td>
+</tr>
+<tr>
+<td>持有</td>
+<td>100032 富国中证红利指数增强A</td>
+<td style="text-align: right;">¥0</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+<td></td>
+<td>NAV 3y 分位 24%（便宜）</td>
+<td>《穷查理宝典》Munger：知道自己不知道什么</td>
+</tr>
+</tbody>
+</table>
+<h2>📈 持仓趋势速览</h2>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>名称</th>
+<th style="text-align: right;">30 天</th>
+<th style="text-align: right;">7 日</th>
+<th style="text-align: right;">连跌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100032</td>
+<td>富国中证红利指数增强A</td>
+<td style="text-align: right;">+1.25%</td>
+<td style="text-align: right;">+0.21%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>023917</td>
+<td>华夏国证自由现金流ETF发起</td>
+<td style="text-align: right;">+0.73%</td>
+<td style="text-align: right;">-0.10%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>007751</td>
+<td>景顺长城沪港深红利成长低波指</td>
+<td style="text-align: right;">+2.03%</td>
+<td style="text-align: right;">-0.14%</td>
+<td style="text-align: right;">1 天</td>
+</tr>
+<tr>
+<td>018200</td>
+<td>嘉实恒生消费ETF发起联接(</td>
+<td style="text-align: right;">-6.26%</td>
+<td style="text-align: right;">-3.57%</td>
+<td style="text-align: right;">3 天 ⚠️</td>
+</tr>
+<tr>
+<td>501050</td>
+<td>华夏上证50AH优选指数(L</td>
+<td style="text-align: right;">-1.15%</td>
+<td style="text-align: right;">-1.77%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>013402</td>
+<td>华夏恒生科技ETF发起式联接</td>
+<td style="text-align: right;">-7.99%</td>
+<td style="text-align: right;">-4.44%</td>
+<td style="text-align: right;">5 天 ⚠️</td>
+</tr>
+<tr>
+<td>008359</td>
+<td>华安医疗创新混合A</td>
+<td style="text-align: right;">-7.74%</td>
+<td style="text-align: right;">-3.79%</td>
+<td style="text-align: right;">3 天 ⚠️</td>
+</tr>
+<tr>
+<td>100038</td>
+<td>富国沪深300指数增强A/B</td>
+<td style="text-align: right;">-2.63%</td>
+<td style="text-align: right;">-0.89%</td>
+<td style="text-align: right;">2 天</td>
+</tr>
+<tr>
+<td>008975</td>
+<td>富国中证消费50ETF联接A</td>
+<td style="text-align: right;">-0.24%</td>
+<td style="text-align: right;">-2.23%</td>
+<td style="text-align: right;">5 天 ⚠️</td>
+</tr>
+<tr>
+<td>021457</td>
+<td>易方达恒生港股通高股息低波动</td>
+<td style="text-align: right;">+1.37%</td>
+<td style="text-align: right;">-0.33%</td>
+<td style="text-align: right;">3 天 ⚠️</td>
+</tr>
+</tbody>
+</table>
+<h2>📚 本月应用的 14 个跨书概念</h2>
+<p><strong>重点概念（当月相关）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>重点概念</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>长期持有</td>
+<td>Bogle《共同基金常识》</td>
+</tr>
+<tr>
+<td>市场先生</td>
+<td>Graham《聪明的投资者》</td>
+</tr>
+</tbody>
+</table>
+<p><strong>所有 14 个概念</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>原则</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安全边际</td>
+<td>5 毛买值 1 块</td>
+<td>评估高估基</td>
+</tr>
+<tr>
+<td>资产配置</td>
+<td>配置决定 90% 收益</td>
+<td>95% 股 → 70/25/5</td>
+</tr>
+<tr>
+<td>市场先生</td>
+<td>利用他的情绪</td>
+<td>5 只基 0% 分位 = 机会</td>
+</tr>
+<tr>
+<td>第二层思维</td>
+<td>比共识想得更远</td>
+<td>港股 23% 减至 12%</td>
+</tr>
+<tr>
+<td>逆向投资</td>
+<td>别人恐惧时贪婪</td>
+<td>5 只低估基 = 逆向机会</td>
+</tr>
+<tr>
+<td>72 法则</td>
+<td>10% × 7.2 年 = 翻倍</td>
+<td>月定投 ¥1.5 万</td>
+</tr>
+<tr>
+<td>行为差距</td>
+<td>少交易 = 少损失</td>
+<td>频繁看盘 = 行为税</td>
+</tr>
+<tr>
+<td>反脆弱</td>
+<td>波动中受益</td>
+<td>加 5% 现金</td>
+</tr>
+<tr>
+<td>能力圈</td>
+<td>知道自己不知道</td>
+<td>砍 36 只圈外基</td>
+</tr>
+<tr>
+<td>长期持有</td>
+<td>5 年 85% 赢率</td>
+<td>留牛基不动</td>
+</tr>
+<tr>
+<td>周期</td>
+<td>钟摆永远走过头</td>
+<td>减高估加低估</td>
+</tr>
+<tr>
+<td>lollapalooza</td>
+<td>多因素叠加极端</td>
+<td>减港股 23% 集中度</td>
+</tr>
+<tr>
+<td>价值投资</td>
+<td>买得便宜</td>
+<td>关注 1y 分位 &lt; 30%</td>
+</tr>
+<tr>
+<td>多元思维</td>
+<td>8 学科工具箱</td>
+<td>每周检查 1 次</td>
+</tr>
+</tbody>
+</table>
+<h2>✅ 月度复盘清单（10 项）</h2>
+<ul>
+<li>[ ] 高估基是否减仓（501050 等）</li>
+<li>[ ] 低估基是否加仓（260108 等）</li>
+<li>[ ] 烂基是否清仓（005827 等）</li>
+<li>[ ] 微仓是否清理（&lt;¥3,000）</li>
+<li>[ ] 港股占比是否合理（目标 &lt; 15%）</li>
+<li>[ ] 现金占比是否充足（目标 5%）</li>
+<li>[ ] 债占比是否合理（目标 25%）</li>
+<li>[ ] 同类重复是否清理（医药/港股）</li>
+<li>[ ] 是否新增投资书知识</li>
+<li>[ ] 是否读了 1 本书（19 本中的 1 本）</li>
+</ul>
+<p>⚠️ 风险提示：数据基于 2026-09-04 快照，宏观环境每日变化
+⚠️ 本报告为参考方案，不构成投资建议</p></div>
+</div>
+
+<div class="header" style="margin: 16px; text-align: center; font-size: 12px; color: #999;">
+  💡 基金投资报告 v2 · 由 Claude 智能分析 · 数据来源：AKShare + FRED · 仅供参考
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  document.querySelectorAll('.tab')[['daily','weekly','monthly'].indexOf(name)].classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
