@@ -1538,10 +1538,41 @@ p { margin: 6px 0; }
 </tbody>
 </table>
 <p><em>出自《黑天鹅》Taleb：脆弱 = 波动导致损害，杠铃 = 90% 安全 + 10% 机会</em></p>
-<h2>🌡️ 组合估值温度（v2 · 按真实仓位加权）</h2>
-<p><strong>温度</strong>: 44.3（0 极便宜 → 100 极贵）</p>
-<p><strong>5 区</strong>: 🟡中性区 → 持有为主</p>
-<p><strong>等价螺丝钉星</strong>: 🟡⭐⭐⭐⭐☆3.7星（映射公式：5.9 − V/100 × 4.9）</p>
+<h2>🌡️ 组合估值温度（v2 · 按真实仓位加权 · 双口径）</h2>
+<table>
+<thead>
+<tr>
+<th>口径</th>
+<th style="text-align: right;">温度</th>
+<th style="text-align: right;">等价螺丝钉星</th>
+<th style="text-align: right;">校准后（+0.69）</th>
+<th>5 区</th>
+<th style="text-align: right;">覆盖权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全组合</td>
+<td style="text-align: right;">44.3</td>
+<td style="text-align: right;">🟡⭐⭐⭐⭐☆3.7星</td>
+<td style="text-align: right;">≈4.39 星</td>
+<td>🟡中性区</td>
+<td style="text-align: right;">100.0%</td>
+</tr>
+<tr>
+<td>A 股部分</td>
+<td style="text-align: right;">44.1</td>
+<td style="text-align: right;">🟡⭐⭐⭐⭐☆3.7星</td>
+<td style="text-align: right;">≈4.39 星</td>
+<td>🟡中性区</td>
+<td style="text-align: right;">100.0%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ 温度 = Σ(权重ᵢ × Vᵢ) / Σ权重ᵢ。A股口径排除港股/QDII/海外/主动类。
+校准说明：与螺丝钉 5 个公开锚点对比，平均偏差 −0.69 星 → 加 0.69 校准</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1625,8 +1656,88 @@ p { margin: 6px 0; }
 </tr>
 </tbody>
 </table>
+<h2>🎯 v2 配比重算（基于估值温度修正）</h2>
+<p>公式：<code>目标仓位 = 战略中枢 × (1 + β·(50−V)/50)</code></p>
+<table>
+<thead>
+<tr>
+<th>资产线</th>
+<th style="text-align: right;">战略中枢</th>
+<th style="text-align: right;">估值代理 V</th>
+<th style="text-align: right;">修正系数</th>
+<th style="text-align: right;">目标仓位</th>
+<th style="text-align: right;">当前占比</th>
+<th style="text-align: right;">偏离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宽基A股</td>
+<td style="text-align: right;">30%</td>
+<td style="text-align: right;">49.8</td>
+<td style="text-align: right;">1.004</td>
+<td style="text-align: right;"><strong>30.1%</strong></td>
+<td style="text-align: right;">18.2%</td>
+<td style="text-align: right;">+12.0pp</td>
+</tr>
+<tr>
+<td>红利</td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">87.0</td>
+<td style="text-align: right;">0.630</td>
+<td style="text-align: right;"><strong>12.6%</strong></td>
+<td style="text-align: right;">20.5%</td>
+<td style="text-align: right;">-7.9pp</td>
+</tr>
+<tr>
+<td>海外宽基</td>
+<td style="text-align: right;">12%</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">1.080</td>
+<td style="text-align: right;"><strong>13.0%</strong></td>
+<td style="text-align: right;">23.3%</td>
+<td style="text-align: right;">-10.3pp</td>
+</tr>
+<tr>
+<td>行业主题</td>
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">1.480</td>
+<td style="text-align: right;"><strong>14.8%</strong></td>
+<td style="text-align: right;">38.1%</td>
+<td style="text-align: right;">-23.3pp</td>
+</tr>
+<tr>
+<td>黄金</td>
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;"><strong>10.0%</strong></td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">+10.0pp</td>
+</tr>
+<tr>
+<td>债券</td>
+<td style="text-align: right;">13%</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;"><strong>13.0%</strong></td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">+13.0pp</td>
+</tr>
+<tr>
+<td>现金</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;"><strong>5.0%</strong></td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">+5.0pp</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>ℹ️ 温度 = Σ(权重ᵢ × Vᵢ) / Σ权重ᵢ。现金/纯债类不计入权重。</p>
+<p>ℹ️ β = 估值敏感系数（债/现金低，宽基/行业高）。约束：单类 ≤ 50%、偏离中枢 ±15pp</p>
 </blockquote>
 <h2>📊 6 类资产 V-Score（基于 10y 历史分位）</h2>
 <table>
